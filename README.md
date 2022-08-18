@@ -3,15 +3,29 @@
 * `main.js`: contains parallelized code  
 * `serial.js`: contains serial equivalent of main.js  
 
-# Usage
+# Example
+```js
+let result = await Parallel.foreach(
+    //array to be mapped over
+    [1,2,3,4],
+    //this function will run in the worker thread
+    (v,i)=>{
+        return v*2;
+    }
+);
+//prints [2,4,6,8]
+console.log(result);
+```
+
+# API
 This library is still in-dev, so the API is prone to change.  
 `parallel.js` module provides three module members, namely `{Parallel,FakeParallel,newarr}`.  
 * `Parallel` provides the main API  
 * `FakeParallel` provides a mirrored serial API for performance testing purposes.  
 * `newarr(n)` is a utility function that creates a zero filled array of size `n`.  
 
-# API
-## async Parallel.foreach(array,callback(value,index))
+## Methods
+### async Parallel.foreach(array,callback(value,index))
 Pretty self explanatory. It maps the array using the callback with their return values just like `Array.map(callback)`.
 
 # Performance/Execution results
