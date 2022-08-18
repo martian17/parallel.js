@@ -1,7 +1,7 @@
 # Parallel.js
 * `parallel.js`: contains the module code  
-* `main.js`: contains parallelized code  
-* `serial.js`: contains serial equivalent of main.js  
+* `test_parallel.js`: contains an intense numerical mapping code  
+* `test_serial.js`: contains serial equivalent of test_parallel.js  
 
 # Example
 ```js
@@ -29,9 +29,9 @@ This library is still in-dev, so the API is prone to change.
 Pretty self explanatory. It maps the array using the callback with their return values just like `Array.map(callback)`.
 
 # Performance/Execution results
-## main.js
+## test_parallel.js
 ```
-$ time node main.js
+$ time node test_parallel.js
 starting
 [
      0, 5123, 4007, 2891, 1775,  659, 5782, 4666, 3550, 2434,
@@ -50,9 +50,9 @@ real	0m0.991s
 user	0m4.497s
 sys	0m0.053s
 ```
-## serial.js
+## test_serial.js
 ```
-$ time node serial.js
+$ time node test_serial.js
 starting
 [
      0, 5123, 4007, 2891, 1775,  659, 5782, 4666, 3550, 2434,
