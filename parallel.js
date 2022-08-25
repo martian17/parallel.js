@@ -16,8 +16,11 @@ const Parallel = {
         let workerstr = `
         const {parentPort} = require("node:worker_threads");
         const mapper = ${cb.toString()};
-        parentPort.on("message",([val,i])=>{
+        parentPort.on("message",async ([val,i])=>{
             let result = mapper(val,i);
+            if(result instanceof Promise){
+                result = await result;
+            }
             parentPort.postMessage(result);
         });
         `;
